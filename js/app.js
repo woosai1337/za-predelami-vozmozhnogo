@@ -63,6 +63,16 @@
     })();
   }
 
+  /* ---------- Hero 3D-parallax ---------- */
+  if (!reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    window.addEventListener('pointermove', function (e) {
+      var dx = (e.clientX / window.innerWidth) * 2 - 1;
+      var dy = (e.clientY / window.innerHeight) * 2 - 1;
+      document.documentElement.style.setProperty('--px', dx.toFixed(3));
+      document.documentElement.style.setProperty('--py', dy.toFixed(3));
+    });
+  }
+
   /* ---------- Reveal on scroll ---------- */
   var revealEls = document.querySelectorAll('.reveal');
   Array.prototype.forEach.call(revealEls, function (el, i) {
@@ -119,55 +129,7 @@
     }
   }
 
-  /* ---------- Hero canvas particles ---------- */
-  var canvas = document.getElementById('heroCanvas');
-  if (canvas && !reduceMotion) {
-    var ctx = canvas.getContext('2d');
-    var particles = [], w = 0, h = 0, dpr = Math.min(window.devicePixelRatio || 1, 2);
-    function resize() {
-      var rect = canvas.getBoundingClientRect();
-      w = rect.width; h = rect.height;
-      canvas.width = w * dpr; canvas.height = h * dpr;
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      var count = Math.min(90, Math.round(w * h / 22000));
-      particles = [];
-      for (var i = 0; i < count; i++) {
-        particles.push({
-          x: Math.random() * w, y: Math.random() * h,
-          r: Math.random() * 1.8 + 0.4,
-          vx: (Math.random() - 0.5) * 0.28,
-          vy: (Math.random() - 0.5) * 0.28,
-          a: Math.random() * 0.5 + 0.15
-        });
-      }
-    }
-    function draw() {
-      ctx.clearRect(0, 0, w, h);
-      for (var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < -20) p.x = w + 20; if (p.x > w + 20) p.x = -20;
-        if (p.y < -20) p.y = h + 20; if (p.y > h + 20) p.y = -20;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(210,39,48,' + (p.a * 0.55) + ')';
-        ctx.fill();
-        for (var j = i + 1; j < particles.length; j++) {
-          var q = particles[j], dx = p.x - q.x, dy = p.y - q.y, d2 = dx * dx + dy * dy;
-          if (d2 < 14000) {
-            ctx.beginPath();
-            ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y);
-            ctx.strokeStyle = 'rgba(0,132,61,' + (0.16 * (1 - d2 / 14000)) + ')';
-            ctx.lineWidth = 0.7;
-            ctx.stroke();
-          }
-        }
-      }
-      requestAnimationFrame(draw);
-    }
-    resize(); draw();
-    window.addEventListener('resize', resize);
-  }
+  /* ---------- Hero canvas: 3D-сцена (см. js/three-scene.js) ---------- */
 
   /* ---------- Heroines: render, filter, modal ---------- */
   var grid = document.getElementById('heroinesGrid');
@@ -184,8 +146,9 @@
       '<article class="heroine-card" data-cat="' + h.cat + '" data-id="' + h.id + '" tabindex="0" role="button" aria-label="Открыть историю: ' + h.name + '">' +
         '<div class="medallion">' +
           '<span class="cat-tag">' + catLabel(h.cat) + '</span>' +
-          '<span class="ring"></span><span class="ring two"></span>' +
-          '<span class="initials">' + initialsOf(h) + '</span>' +
+          (h.photo
+            ? '<img class="medallion-img" src="' + h.photo + '" alt="Фотография: ' + h.name + '" loading="lazy">'
+            : '<span class="ring"></span><span class="ring two"></span><span class="initials">' + initialsOf(h) + '</span>') +
         '</div>' +
         '<div class="card-body">' +
           '<h3>' + h.name + '</h3>' +
@@ -234,6 +197,12 @@
         '<p class="modal-role">' + h.role + (h.years ? ' · ' + h.years : '') + '</p></div>' +
       '</div>' +
       '<p class="modal-lead">' + h.lead + '</p>' +
+      (h.photo
+        ? '<figure class="modal-photo-wrap"><img class="modal-photo" src="' + h.photo + '" alt="Фотография: ' + h.name + '">' +
+          '<figcaption class="photo-credit">' + (h.photoCredit || 'Фото') +
+          (h.photoArticle ? ' · <a href="' + h.photoArticle + '" target="_blank" rel="noopener">источник</a>' : '') +
+          '</figcaption></figure>'
+        : '') +
       '<div class="modal-section"><h3>Что она сделала</h3><ul class="modal-facts">' +
         h.facts.map(function (f) { return '<li>' + f + '</li>'; }).join('') +
       '</ul></div>' +
@@ -291,6 +260,8 @@
       var py = (e.clientY - r.top) / r.height - 0.5;
       card.style.setProperty('--ry', (px * 7).toFixed(2) + 'deg');
       card.style.setProperty('--rx', (-py * 7).toFixed(2) + 'deg');
+      card.style.setProperty('--gx', ((px + 0.5) * 100).toFixed(1) + '%');
+      card.style.setProperty('--gy', ((py + 0.5) * 100).toFixed(1) + '%');
     });
     document.addEventListener('pointerout', function (e) {
       var card = e.target.closest ? e.target.closest('.heroine-card') : null;

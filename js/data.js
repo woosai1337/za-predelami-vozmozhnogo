@@ -29,6 +29,9 @@ const HEROINES = [
     years: 'ок. 1101–1173',
     role: 'Просветительница, игуменья',
     cat: 'history',
+    photo: 'assets/photos/euphrosyne.jpg',
+    photoCredit: 'Фото: Википедия · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%95%D0%B2%D1%84%D1%80%D0%BE%D1%81%D0%B8%D0%BD%D0%B8%D1%8F_%D0%9F%D0%BE%D0%BB%D0%BE%D1%86%D0%BA%D0%B0%D1%8F',
     short: 'Покровительница земли белорусской, основавшая первые монастыри-школы на полоцкой земле.',
     lead: 'Внучка Всеслава Чародея, в миру — княжна Предслава. Она отказалась от княжеской жизни ради просвещения и сделала Полоцк одним из центров книжности Древней Руси.',
     facts: [
@@ -46,6 +49,9 @@ const HEROINES = [
     years: '1585–1612',
     role: 'Княгиня Слуцкая и Копыльская',
     cat: 'history',
+    photo: 'assets/photos/sofia.jpg',
+    photoCredit: 'Фото: Википедия · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D1%84%D0%B8%D1%8F_%D0%A1%D0%BB%D1%83%D1%86%D0%BA%D0%B0%D1%8F',
     short: '«Непокорённая» княгиня — символ верности вере, слову и своему народу.',
     lead: 'Последняя представительница рода Олельковичей-Слуцких. В эпоху религиозных конфликтов она сохранила верность православию и стала примером стойкости.',
     facts: [
@@ -63,6 +69,9 @@ const HEROINES = [
     years: '1842–1899',
     role: 'Первая женщина — доктор медицины Российской империи',
     cat: 'science',
+    photo: 'assets/photos/kash.jpg',
+    photoCredit: 'Портрет О. Мая · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%A0%D1%83%D0%B4%D0%BD%D0%B5%D0%B2%D0%B0-%D0%9A%D0%B0%D1%88%D0%B5%D0%B2%D0%B0%D1%80%D0%BE%D0%B2%D0%B0%2C_%D0%92%D0%B0%D1%80%D0%B2%D0%B0%D1%80%D0%B0_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Уроженка Витебщины, пробившая запрет на высшее медицинское образование для женщин.',
     lead: 'Она родилась в Витебской губернии и стала первой женщиной Российской империи, получившей степень доктора медицины, — в эпоху, когда женщинам вход в университеты был практически закрыт.',
     facts: [
@@ -80,6 +89,9 @@ const HEROINES = [
     years: '— 2024',
     role: 'Учёный-генетик, академик НАН Беларуси',
     cat: 'science',
+    photo: 'assets/photos/khatylyova.jpg',
+    photoCredit: 'Фото: пресс-служба НАН Беларуси',
+    photoArticle: 'https://nasb.gov.by/eng/news/14422/',
     short: 'Выдающийся белорусский генетик, чьи работы определили развитие отечественной науки.',
     lead: 'Академик Национальной академии наук Беларуси, известный учёный-генетик. Её исследования и научная школа воспитали несколько поколений белорусских биологов.',
     facts: [
@@ -97,6 +109,9 @@ const HEROINES = [
     years: '1876–1916',
     role: 'Поэтесса, деятельница национального возрождения',
     cat: 'word',
+    photo: 'assets/photos/pashkevich.jpg',
+    photoCredit: 'Фото: Википедия · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%A2%D1%91%D1%82%D0%BA%D0%B0_(%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D0%B8%D1%86%D0%B0)',
     short: 'Голос белорусского возрождения; в 2026 году — 150 лет со дня её рождения.',
     lead: 'Поэтесса, публицистка, переводчица, участница общественного движения. Она писала под псевдонимом Тётка и стала одним из первых женских голосов новой белорусской литературы.',
     facts: [
@@ -114,6 +129,9 @@ const HEROINES = [
     years: 'род. 1948',
     role: 'Писательница, лауреат Нобелевской премии',
     cat: 'word',
+    photo: 'assets/photos/alexievich.jpg',
+    photoCredit: 'Фото: A. Savin · FAL',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B8%D0%B5%D0%B2%D0%B8%D1%87%2C_%D0%A1%D0%B2%D0%B5%D1%82%D0%BB%D0%B0%D0%BD%D0%B0_%D0%90%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Первая белорусская писательница — лауреат Нобелевской премии по литературе.',
     lead: 'В 2015 году она получила Нобелевскую премию по литературе — первую для белорусской литературы и первую за почти 30 лет для русскоязычного автора.',
     facts: [
@@ -131,6 +149,9 @@ const HEROINES = [
     years: '1948–1988',
     role: 'Поэтесса',
     cat: 'word',
+    photo: 'assets/photos/yanishchits.jpg',
+    photoCredit: 'Фото: Википедия (be)',
+    photoArticle: 'https://be.wikipedia.org/wiki/%D0%AF%D1%9E%D0%B3%D0%B5%D0%BD%D1%96%D1%8F_%D0%AF%D0%BD%D1%96%D1%88%D1%87%D1%8B%D1%86',
     short: '«Белорусская Ахматова» — поэтесса, чей голос звучит сквозь десятилетия.',
     lead: 'Её называли «белорусской Ахматовой». В поэзии Янищиц — родная земля, память, любовь и тихая сила.',
     facts: [
@@ -148,6 +169,9 @@ const HEROINES = [
     years: 'род. 1951',
     role: 'Оперная певица',
     cat: 'art',
+    photo: 'assets/photos/rudneva.jpg',
+    photoCredit: 'Фото: БелТА',
+    photoArticle: 'https://belta.by/culture/view/blistatelnaja-diva-belorusskoj-opernoj-stseny-natalje-rudnevoj-ispolnjaetsja-75-let-782872-2026/',
     short: 'Блистательная дива белорусской оперной сцены; в 2026 году отмечает 75-летие.',
     lead: 'Одна из самых ярких оперных певиц Беларуси, десятилетиями блистающая на главной сцене страны и на зарубежных гастролях.',
     facts: [
@@ -165,6 +189,9 @@ const HEROINES = [
     years: 'род. 1990',
     role: 'Первая женщина-космонавт суверенной Беларуси, Герой Беларуси',
     cat: 'space',
+    photo: 'assets/photos/vasilevskaya.jpg',
+    photoCredit: 'Фото: Kremlin.ru · CC BY 4.0',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D1%81%D0%B8%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F%2C_%D0%9C%D0%B0%D1%80%D0%B8%D0%BD%D0%B0_%D0%92%D0%B8%D1%82%D0%B0%D0%BB%D1%8C%D0%B5%D0%B2%D0%BD%D0%B0',
     short: 'В марте 2024 года провела 14 суток на МКС и стала первой белорусской женщиной в космосе.',
     lead: 'Бортпроводница «Белавиа», ставшая первым космонавтом в истории суверенной Беларуси. 11 апреля 2024 года ей вручили медаль Героя Беларуси.',
     facts: [
@@ -182,6 +209,9 @@ const HEROINES = [
     years: 'род. 1986',
     role: 'Биатлонистка, Герой Беларуси',
     cat: 'sport',
+    photo: 'assets/photos/domracheva.jpg',
+    photoCredit: 'Фото: Andrew Fedorov · CC BY 2.0',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%94%D0%BE%D0%BC%D1%80%D0%B0%D1%87%D0%B5%D0%B2%D0%B0%2C_%D0%94%D0%B0%D1%80%D1%8C%D1%8F_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Четырёхкратная олимпийская чемпионка и первая женщина — Герой Беларуси.',
     lead: 'Три золота на Олимпиаде в Сочи-2014 и золото эстафеты в Пхёнчхане-2018. Первая женщина, удостоенная звания Героя Беларуси.',
     facts: [
@@ -199,6 +229,9 @@ const HEROINES = [
     years: 'род. 1955',
     role: 'Гимнастка, легенда мировой гимнастики',
     cat: 'sport',
+    photo: 'assets/photos/korbut.jpg',
+    photoCredit: 'Фото: Википедия · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%9A%D0%BE%D1%80%D0%B1%D1%83%D1%82%2C_%D0%9E%D0%BB%D1%8C%D0%B3%D0%B0_%D0%92%D0%B0%D0%BB%D0%B5%D0%BD%D1%82%D0%B8%D0%BD%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Уроженка Гродно: четыре олимпийских золота и элемент «петля Корбут».',
     lead: 'Она выросла в Гродно и вошла в историю мировой гимнастики — четыре олимпийских золота и элемент, названный её именем.',
     facts: [
@@ -216,6 +249,9 @@ const HEROINES = [
     years: 'род. 1998',
     role: 'Теннисистка, первая ракетка мира',
     cat: 'sport',
+    photo: 'assets/photos/sabalenka.jpg',
+    photoCredit: 'Фото: Википедия · CC0',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%A1%D0%BE%D0%B1%D0%BE%D0%BB%D0%B5%D0%BD%D0%BA%D0%BE%2C_%D0%90%D1%80%D0%B8%D0%BD%D0%B0_%D0%A1%D0%B5%D1%80%D0%B3%D0%B5%D0%B5%D0%B2%D0%BD%D0%B0',
     short: 'Первая ракетка мира, победительница турниров Большого шлема и чемпионка мира 2025 года.',
     lead: 'Белорусская теннисистка, поднявшаяся на первое место мирового рейтинга и побеждавшая на главных турнирах планеты.',
     facts: [
@@ -233,6 +269,9 @@ const HEROINES = [
     years: 'род. 1989',
     role: 'Теннисистка, экс-первая ракетка мира',
     cat: 'sport',
+    photo: 'assets/photos/azarenka.jpg',
+    photoCredit: 'Фото: Carine06 · CC BY-SA 2.0',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%90%D0%B7%D0%B0%D1%80%D0%B5%D0%BD%D0%BA%D0%BE%2C_%D0%92%D0%B8%D0%BA%D1%82%D0%BE%D1%80%D0%B8%D1%8F_%D0%A4%D1%91%D0%B4%D0%BE%D1%80%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Первая белоруска на вершине мирового тенниса и двукратная победительница Australian Open.',
     lead: 'Она первой из белорусских теннисисток возглавила мировой рейтинг и дважды выиграла Australian Open.',
     facts: [
@@ -250,6 +289,9 @@ const HEROINES = [
     years: '1903–1942',
     role: 'Подпольщица, Герой Советского Союза',
     cat: 'courage',
+    photo: 'assets/photos/khoruzhaya.jpg',
+    photoCredit: 'Фото: Википедия · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%A5%D0%BE%D1%80%D1%83%D0%B6%D0%B0%D1%8F%2C_%D0%92%D0%B5%D1%80%D0%B0_%D0%97%D0%B0%D1%85%D0%B0%D1%80%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Учительница, ставшая легендой сопротивления; звание Героя — посмертно.',
     lead: 'Учительница и подпольщица, погибшая в 1942 году. Звание Героя Советского Союза ей присвоено посмертно.',
     facts: [
@@ -267,6 +309,9 @@ const HEROINES = [
     years: '1908–1999',
     role: 'Подпольщица, Герой Советского Союза',
     cat: 'courage',
+    photo: 'assets/photos/osipova.jpg',
+    photoCredit: 'Фото: Википедия · Public domain',
+    photoArticle: 'https://ru.wikipedia.org/wiki/%D0%9E%D1%81%D0%B8%D0%BF%D0%BE%D0%B2%D0%B0%2C_%D0%9C%D0%B0%D1%80%D0%B8%D1%8F_%D0%91%D0%BE%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%BD%D0%B0',
     short: 'Родилась в Могилёве; одна из руководителей минского подполья.',
     lead: 'Уроженка Могилёва, участница и одна из руководителей минского подполья в годы Великой Отечественной войны.',
     facts: [
