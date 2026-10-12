@@ -154,7 +154,7 @@ p{margin:0 0 1em}
 .hero-kicker{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase;color:var(--red);margin-bottom:22px;font-weight:600}
 .hero-title{font-size:clamp(3rem,10.5vw,8.4rem);line-height:.92;margin:0 0 26px;letter-spacing:-.015em;color:var(--text)}
 .hero-title .line{display:block}
-.hero-title .grad{background:var(--grad-flag);background-size:220% 220%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 9s ease-in-out infinite}
+.hero-title .grad{background:linear-gradient(112deg,#d22730 0%,#e0413a 44%,#d97a2b 72%,#c9a227 100%);background-size:170% 170%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shimmer 11s ease-in-out infinite}
 @keyframes shimmer{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
 .hero-lead{max-width:620px;font-size:clamp(1.02rem,1.6vw,1.22rem);color:var(--text-2)}
 .hero-typed{font-family:var(--serif);font-size:clamp(1.25rem,2.6vw,1.9rem);color:var(--red);min-height:1.6em;margin-bottom:34px}
