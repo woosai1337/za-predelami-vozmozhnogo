@@ -197,17 +197,21 @@
         '<p class="modal-role">' + h.role + (h.years ? ' · ' + h.years : '') + '</p></div>' +
       '</div>' +
       '<p class="modal-lead">' + h.lead + '</p>' +
-      (h.photo
-        ? '<figure class="modal-photo-wrap"><img class="modal-photo" src="' + h.photo + '" alt="Фотография: ' + h.name + '">' +
-          '<figcaption class="photo-credit">' + (h.photoCredit || 'Фото') +
-          (h.photoArticle ? ' · <a href="' + h.photoArticle + '" target="_blank" rel="noopener">источник</a>' : '') +
-          '</figcaption></figure>'
-        : '') +
-      '<div class="modal-section"><h3>Что она сделала</h3><ul class="modal-facts">' +
-        h.facts.map(function (f) { return '<li>' + f + '</li>'; }).join('') +
-      '</ul></div>' +
-      '<div class="modal-section"><h3>Почему это вдохновляет</h3>' +
-      '<p class="modal-inspire">' + h.inspire + '</p></div>';
+      '<div class="modal-grid">' +
+        (h.photo
+          ? '<div class="modal-aside"><figure class="modal-photo-wrap"><img class="modal-photo" src="' + h.photo + '" alt="Фотография: ' + h.name + '">' +
+            '<figcaption class="photo-credit">' + (h.photoCredit || 'Фото') +
+            (h.photoArticle ? ' · <a href="' + h.photoArticle + '" target="_blank" rel="noopener">источник</a>' : '') +
+            '</figcaption></figure></div>'
+          : '') +
+        '<div class="modal-main">' +
+          '<div class="modal-section"><h3>Что она сделала</h3><ul class="modal-facts">' +
+            h.facts.map(function (f) { return '<li>' + f + '</li>'; }).join('') +
+          '</ul></div>' +
+          '<div class="modal-section"><h3>Почему это вдохновляет</h3>' +
+          '<p class="modal-inspire">' + h.inspire + '</p></div>' +
+        '</div>' +
+      '</div>';
     lastFocused = document.activeElement;
     modal.classList.add('open');
     modal.setAttribute('aria-hidden', 'false');

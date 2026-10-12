@@ -84,14 +84,14 @@ const HEROINES = [
   },
   {
     id: 'khatylyova',
-    name: 'Любовь Хатылёва',
+    name: 'Любовь Хотылёва',
     initials: 'ЛХ',
     years: '— 2024',
     role: 'Учёный-генетик, академик НАН Беларуси',
     cat: 'science',
     photo: 'assets/photos/khatylyova.jpg',
     photoCredit: 'Фото: пресс-служба НАН Беларуси',
-    photoArticle: 'https://nasb.gov.by/eng/news/14422/',
+    photoArticle: 'https://nasb.gov.by/rus/news/14418/',
     short: 'Выдающийся белорусский генетик, чьи работы определили развитие отечественной науки.',
     lead: 'Академик Национальной академии наук Беларуси, известный учёный-генетик. Её исследования и научная школа воспитали несколько поколений белорусских биологов.',
     facts: [
