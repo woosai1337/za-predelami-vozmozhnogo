@@ -5,9 +5,9 @@
    ===================================================================== */
 
 :root{
-  --paper:#eef2e6;
-  --paper-2:#e4ecdc;
-  --paper-3:#d8e3cf;
+  --paper:#f6f3ec;
+  --paper-2:#eef2e8;
+  --paper-3:#e2e8d9;
   --ink:#13120f;
   --ink-2:#3b382f;
   --ink-3:#7c766a;
@@ -32,12 +32,20 @@ body{
 }
 /* зелёный акцент в фоне всего сайта */
 body::before{
-  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  content:"";position:fixed;inset:-25%;z-index:0;pointer-events:none;will-change:transform;
   background:
-    radial-gradient(82vw 72vw at 108% -16%,rgba(13,122,68,.30),transparent 62%),
-    radial-gradient(74vw 64vw at -16% 112%,rgba(13,122,68,.26),transparent 60%),
-    radial-gradient(64vw 52vw at 50% 128%,rgba(13,122,68,.20),transparent 62%),
-    linear-gradient(160deg,rgba(13,122,68,.10),transparent 45%,rgba(13,122,68,.10));
+    radial-gradient(38% 34% at 18% 22%,rgba(13,122,68,.34),transparent 68%),
+    radial-gradient(34% 30% at 82% 14%,rgba(207,31,46,.20),transparent 68%),
+    radial-gradient(44% 38% at 78% 84%,rgba(13,122,68,.28),transparent 70%),
+    radial-gradient(36% 32% at 20% 88%,rgba(176,138,46,.22),transparent 70%),
+    radial-gradient(58% 48% at 50% 46%,rgba(255,255,255,.55),transparent 76%);
+  filter:blur(38px);
+  animation:mesh 46s ease-in-out infinite alternate;
+}
+@keyframes mesh{
+  0%{transform:translate3d(-2%,-1%,0) scale(1.05)}
+  50%{transform:translate3d(2%,2%,0) scale(1.11)}
+  100%{transform:translate3d(3%,-2%,0) scale(1.06)}
 }
 main,.foot{position:relative;z-index:1}
 img{display:block;max-width:100%;height:auto}
@@ -96,14 +104,13 @@ button{font:inherit}
 .stats b{display:block;font-family:var(--serif);font-size:1.75rem;font-weight:600;line-height:1}
 .stats span{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);max-width:19ch}
 .hero__visual{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
-.hero__canvas{width:100%;max-width:520px;aspect-ratio:4/3;display:block}
+.hero__canvas{width:100%;max-width:520px;aspect-ratio:4/3;display:block;filter:drop-shadow(0 26px 36px rgba(23,21,15,.16))}
 .hero__caption{max-width:34ch;text-align:center;color:var(--ink-3);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 
 /* ---------- секции ---------- */
 .section{padding:clamp(60px,7.5vw,104px) 0}
 .section + .section{border-top:1px solid var(--line)}
-.section--tint{background:var(--paper-2)}
-.section--tint + .section{border-top-color:rgba(13,122,68,.22)}
+
 .sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px 22px;align-items:baseline;margin-bottom:clamp(28px,4vw,46px)}
 .sec-head .idx{color:var(--red);padding-top:6px;grid-column:1;white-space:nowrap}
 .sec-head h2{font-size:clamp(1.55rem,3vw,2.35rem)}
@@ -164,7 +171,7 @@ button{font:inherit}
 .sources span{display:block;margin-top:4px;font-size:.84rem;color:var(--ink-3)}
 
 /* ---------- подвал ---------- */
-.foot{border-top:1px solid var(--line);padding:40px 0 34px;background:var(--paper-2)}
+.foot{border-top:1px solid var(--line);padding:40px 0 34px;background:rgba(255,255,255,.5)}
 .foot__grid{display:grid;grid-template-columns:minmax(0,1.4fr) repeat(2,minmax(0,1fr));gap:34px}
 .foot h4{margin:0 0 12px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
 .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.92rem}

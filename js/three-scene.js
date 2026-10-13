@@ -19,15 +19,43 @@
 
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(34, 4 / 3, 0.1, 60);
-  camera.position.set(0.5, 0.26, 5.15);
+  camera.position.set(0.5, 0.24, 4.9);
   camera.lookAt(0.05, 0.0, 0);
 
-  scene.add(new THREE.AmbientLight(0xffffff, 0.46));
-  var keyLight = new THREE.DirectionalLight(0xffffff, 2.3);
+  /* мягкая «студия»: светлая бумага, зелёный и красный отблески —
+     даёт полотну и металлу живые отражения вместо плоской заливки */
+  (function buildEnvironment() {
+    var c = document.createElement('canvas');
+    c.width = 512; c.height = 256;
+    var g = c.getContext('2d');
+    var grad = g.createLinearGradient(0, 0, 0, 256);
+    grad.addColorStop(0, '#ffffff');
+    grad.addColorStop(0.55, '#eef3e9');
+    grad.addColorStop(1, '#c9d4bf');
+    g.fillStyle = grad;
+    g.fillRect(0, 0, 512, 256);
+    g.fillStyle = 'rgba(13,122,68,.42)';
+    g.beginPath(); g.arc(120, 86, 92, 0, 6.3); g.fill();
+    g.fillStyle = 'rgba(207,31,46,.26)';
+    g.beginPath(); g.arc(404, 104, 84, 0, 6.3); g.fill();
+    g.fillStyle = 'rgba(255,255,255,.85)';
+    g.beginPath(); g.arc(262, 30, 70, 0, 6.3); g.fill();
+    var eq = new THREE.CanvasTexture(c);
+    eq.mapping = THREE.EquirectangularReflectionMapping;
+    if ('colorSpace' in eq) eq.colorSpace = THREE.SRGBColorSpace;
+    try {
+      var pmrem = new THREE.PMREMGenerator(renderer);
+      scene.environment = pmrem.fromEquirectangular(eq).texture;
+      pmrem.dispose();
+    } catch (e) {}
+  })();
+
+  scene.add(new THREE.AmbientLight(0xffffff, 0.28));
+  var keyLight = new THREE.DirectionalLight(0xfff4e6, 1.7);
   keyLight.position.set(2.6, 3.6, 4.6);
   scene.add(keyLight);
-  var rimLight = new THREE.DirectionalLight(0xe4ecff, 0.62);
-  rimLight.position.set(-3.6, -1.2, 2.4);
+  var rimLight = new THREE.DirectionalLight(0xdcecff, 0.55);
+  rimLight.position.set(-3.8, -1.4, 2.6);
   scene.add(rimLight);
 
   /* --- полотнище --- */
@@ -53,12 +81,14 @@
   };
   img.src = FLAG_SVG;
 
-  var FLAG_W = 3.0, FLAG_H = 1.5, SEG_X = 96, SEG_Y = 40;
+  var FLAG_W = 3.2, FLAG_H = 1.6, SEG_X = 104, SEG_Y = 44;
   var geo = new THREE.PlaneGeometry(FLAG_W, FLAG_H, SEG_X, SEG_Y);
   geo.translate(FLAG_W / 2, 0, 0);
 
-  var cloth = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({
-    map: texture, side: THREE.DoubleSide, roughness: 0.58, metalness: 0.0
+  var cloth = new THREE.Mesh(geo, new THREE.MeshPhysicalMaterial({
+    map: texture, side: THREE.DoubleSide,
+    roughness: 0.46, metalness: 0.0, clearcoat: 0.06, clearcoatRoughness: 0.7,
+    sheen: 0.55, sheenRoughness: 0.75, sheenColor: new THREE.Color(0xffffff)
   }));
 
   var group = new THREE.Group();
@@ -67,14 +97,15 @@
   group.add(cloth);
 
   var metal = new THREE.MeshStandardMaterial({ color: 0xb9bfc7, roughness: 0.22, metalness: 0.92 });
-  var pole = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.03, 2.2, 20), metal);
-  pole.position.set(POLE_X, 0.02, 0);
+  var pole = new THREE.Mesh(new THREE.CylinderGeometry(0.026, 0.032, 3.6, 20), metal);
+  pole.position.set(POLE_X, -0.68, 0);
   group.add(pole);
   var finial = new THREE.Mesh(new THREE.SphereGeometry(0.075, 26, 18), metal);
-  finial.position.set(POLE_X, 1.16, 0);
+  finial.position.set(POLE_X, 1.15, 0);
   group.add(finial);
 
-  group.rotation.y = -0.2;
+  group.rotation.y = -0.22;
+  group.rotation.z = -0.035;
   scene.add(group);
 
   var basePos = geo.attributes.position.array.slice();
@@ -124,7 +155,8 @@
   var clock = new THREE.Clock();
   function draw(t) {
     wave(t);
-    group.rotation.y = -0.2 + (reduceMotion ? 0 : mx * 0.14);
+    group.rotation.y = -0.22 + (reduceMotion ? 0 : mx * 0.13);
+    group.position.y = Math.sin(t * 0.6) * 0.022;
     renderer.render(scene, camera);
   }
 
