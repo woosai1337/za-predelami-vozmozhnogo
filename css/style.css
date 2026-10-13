@@ -5,9 +5,9 @@
    ===================================================================== */
 
 :root{
-  --paper:#f4f1ea;
-  --paper-2:#fbf9f4;
-  --paper-3:#eae5d9;
+  --paper:#eef2e6;
+  --paper-2:#e4ecdc;
+  --paper-3:#d8e3cf;
   --ink:#13120f;
   --ink-2:#3b382f;
   --ink-3:#7c766a;
@@ -34,9 +34,10 @@ body{
 body::before{
   content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(74vw 64vw at 106% -14%,rgba(13,122,68,.14),transparent 62%),
-    radial-gradient(66vw 56vw at -14% 108%,rgba(13,122,68,.12),transparent 60%),
-    radial-gradient(52vw 44vw at 50% 122%,rgba(13,122,68,.08),transparent 62%);
+    radial-gradient(82vw 72vw at 108% -16%,rgba(13,122,68,.30),transparent 62%),
+    radial-gradient(74vw 64vw at -16% 112%,rgba(13,122,68,.26),transparent 60%),
+    radial-gradient(64vw 52vw at 50% 128%,rgba(13,122,68,.20),transparent 62%),
+    linear-gradient(160deg,rgba(13,122,68,.10),transparent 45%,rgba(13,122,68,.10));
 }
 main,.foot{position:relative;z-index:1}
 img{display:block;max-width:100%;height:auto}
@@ -101,6 +102,8 @@ button{font:inherit}
 /* ---------- секции ---------- */
 .section{padding:clamp(60px,7.5vw,104px) 0}
 .section + .section{border-top:1px solid var(--line)}
+.section--tint{background:var(--paper-2)}
+.section--tint + .section{border-top-color:rgba(13,122,68,.22)}
 .sec-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:18px 22px;align-items:baseline;margin-bottom:clamp(28px,4vw,46px)}
 .sec-head .idx{color:var(--red);padding-top:6px;grid-column:1;white-space:nowrap}
 .sec-head h2{font-size:clamp(1.55rem,3vw,2.35rem)}
