@@ -16,7 +16,7 @@
   --red:#cf1f2e;
   --red-2:#a91622;
   --green:#0d7a44;
-  --dark:#15140f;
+  --dark:#0f1a13;
   --serif:'Literata',Georgia,'Times New Roman',serif;
   --sans:'Golos Text',system-ui,-apple-system,Arial,sans-serif;
   --maxw:1180px;
@@ -30,6 +30,15 @@ body{
   font:400 17px/1.62 var(--sans);
   -webkit-font-smoothing:antialiased;
 }
+/* зелёный акцент в фоне всего сайта */
+body::before{
+  content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(74vw 64vw at 106% -14%,rgba(13,122,68,.14),transparent 62%),
+    radial-gradient(66vw 56vw at -14% 108%,rgba(13,122,68,.12),transparent 60%),
+    radial-gradient(52vw 44vw at 50% 122%,rgba(13,122,68,.08),transparent 62%);
+}
+main,.foot{position:relative;z-index:1}
 img{display:block;max-width:100%;height:auto}
 a{color:inherit}
 h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.08;letter-spacing:-.02em}
@@ -86,7 +95,7 @@ button{font:inherit}
 .stats b{display:block;font-family:var(--serif);font-size:1.75rem;font-weight:600;line-height:1}
 .stats span{display:block;margin-top:6px;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);max-width:19ch}
 .hero__visual{position:relative;display:flex;flex-direction:column;align-items:center;gap:14px}
-.hero__canvas{width:100%;max-width:460px;aspect-ratio:1/1;display:block}
+.hero__canvas{width:100%;max-width:520px;aspect-ratio:4/3;display:block}
 .hero__caption{max-width:34ch;text-align:center;color:var(--ink-3);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 
 /* ---------- секции ---------- */
@@ -112,26 +121,26 @@ button{font:inherit}
 .tile__photo{position:relative;background:var(--paper-3);overflow:hidden}
 .tile__photo img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 12%;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
 .tile:hover .tile__photo img{transform:scale(1.025)}
-.tile__sphere{position:absolute;left:0;top:0;background:var(--paper);color:var(--red);padding:5px 9px;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.tile__sphere{position:absolute;left:0;top:0;background:var(--paper);color:var(--green);padding:5px 9px;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;font-weight:600}
 .tile h3{font-size:1.05rem;margin:14px 0 3px;line-height:1.25}
 .tile:hover h3{color:var(--red)}
 .tile time{display:block;font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
 
 /* ---------- тёмная секция ---------- */
 .dark{background:var(--dark);color:#efece4}
-.dark .sec-head .idx{color:#ff6169}
+.dark .sec-head .idx{color:#5fd08f}
 .dark .sec-head div p{color:rgba(239,236,228,.6)}
 .dark .sec-head h2{color:#fff}
 .chronicle{list-style:none;margin:0;padding:0;columns:2;column-gap:56px}
 .chronicle li{break-inside:avoid;display:grid;grid-template-columns:118px minmax(0,1fr);gap:16px;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.13)}
-.chronicle time{font-size:11.5px;letter-spacing:.08em;color:#ff6169;padding-top:3px}
+.chronicle time{font-size:11.5px;letter-spacing:.08em;color:#5fd08f;padding-top:3px}
 .chronicle h3{font-size:1rem;color:#fff;margin:0 0 3px}
 .chronicle p{margin:0;font-size:.9rem;color:rgba(239,236,228,.62)}
 
 /* ---------- цифры года ---------- */
 .numbers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(22px,3vw,40px);margin:0 0 44px}
 .number{border-top:2px solid var(--ink);padding-top:16px}
-.number b{display:block;font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:600;line-height:1}
+.number b{display:block;font-family:var(--serif);font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:600;line-height:1;color:var(--green)}
 .number span{display:block;margin-top:8px;color:var(--ink-3);font-size:.93rem}
 .docs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 46px;margin:0}
 .docs div{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--line);align-items:baseline}
@@ -141,14 +150,14 @@ button{font:inherit}
 /* ---------- текстовые блоки ---------- */
 .cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(26px,4vw,58px)}
 .cols p:last-child{margin-bottom:0}
-.note{border-left:2px solid var(--red);padding-left:18px;font-family:var(--serif);font-size:1.12rem;line-height:1.5;color:var(--ink-2)}
+.note{border-left:2px solid var(--green);padding-left:18px;font-family:var(--serif);font-size:1.12rem;line-height:1.5;color:var(--ink-2)}
 .list{margin:0;padding-left:20px}
 .list li{margin-bottom:8px}
 .sources{list-style:none;counter-reset:s;margin:0;padding:0;columns:2;column-gap:50px}
 .sources li{counter-increment:s;break-inside:avoid;position:relative;padding:14px 0 14px 40px;border-bottom:1px solid var(--line);font-size:.95rem}
-.sources li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:14px;font-size:11px;letter-spacing:.08em;color:var(--red);font-weight:600}
+.sources li::before{content:counter(s,decimal-leading-zero);position:absolute;left:0;top:14px;font-size:11px;letter-spacing:.08em;color:var(--green);font-weight:600}
 .sources a{text-decoration:none;border-bottom:1px solid var(--line-2)}
-.sources a:hover{color:var(--red);border-color:var(--red)}
+.sources a:hover{color:var(--green);border-color:var(--green)}
 .sources span{display:block;margin-top:4px;font-size:.84rem;color:var(--ink-3)}
 
 /* ---------- подвал ---------- */
@@ -157,7 +166,7 @@ button{font:inherit}
 .foot h4{margin:0 0 12px;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
 .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:.92rem}
 .foot a{text-decoration:none}
-.foot a:hover{color:var(--red)}
+.foot a:hover{color:var(--green)}
 .foot__bottom{margin-top:32px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between;color:var(--ink-3);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
 
 /* ---------- запись каталога ---------- */
@@ -178,7 +187,7 @@ button{font:inherit}
 .modal__body h3{font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;color:var(--ink-3);margin:26px 0 10px}
 .facts{list-style:none;margin:0;padding:0}
 .facts li{position:relative;padding:9px 0 9px 22px;border-bottom:1px solid var(--line);font-size:.95rem}
-.facts li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:1.5px;background:var(--red)}
+.facts li::before{content:"";position:absolute;left:0;top:17px;width:8px;height:1.5px;background:var(--green)}
 .modal__meaning{font-family:var(--serif);font-size:1.06rem;color:var(--ink-2);margin:0}
 
 /* ---------- появление ---------- */
